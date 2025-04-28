@@ -1,0 +1,162 @@
+<!--本代码由 弥夏创建
+ 创建时间 2025年4月28日
+ 微信小程序： 及时去水印
+ 严禁反编译、逆向等任何形式的侵权行为，你可以任意修改-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico"  type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico"  type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>弥夏专属-美团优惠信息中心</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css"  rel="stylesheet">
+    <link href="mixia.css"  rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>弥夏专属-美团优惠信息中心</h1>
+            <div class="time-display">
+                <span id="current-time"></span>
+                <span class="time-update" id="week-day"></span>
+            </div>
+        </div>
+        
+        <div class="alert-box fade-in">
+            <h3><i class="fas fa-exclamation-circle" style="color: var(--warning); margin-right: 8px;"></i>温馨提示</h3>
+            <p>以下优惠信息均为限时活动，请及时领取使用。均支持过期退-自动退。</p>
+        </div>
+        
+        
+        <div class="coupon-list fade-in">
+            <div class="coupon-item" data-id="1">
+                <h3 class="coupon-title">吃货福利天天送</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('1 %复制信息#% 打开团App http:/💰srOWQ4OThjODI💰一起领')">
+					  <!-- 32行是口令位置，两边''放在中间。注意：复制口令不要中间有隔行，按照我这样修改即可-->
+                        <i class="far fa-copy"></i> 复制口令打开美团app 
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/guocha.png',  'https://kzurl16.cn/7v7dQB')">                  
+                        <i class="fas fa-tag"></i> 立即购买 
+                    </button>
+					<!-- 36行修改商品图片位置，默认是：/img/guocha.png     在下面是跳转小程序的链接，你可以自己修改，她两边默认是有''的放在中间  -->
+                </div>
+            </div>
+            
+            <div class="coupon-item" data-id="2">
+                <h3 class="coupon-title">瑞幸咖啡|（含生椰拿铁）4选1兑换券·|门市价32元现价仅需9.9元</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('xy.st522.top')"> 
+                        <i class="far fa-copy"></i> 请点击立刻购买 
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/rx.png',  'https://peppermall.meituan.com/?page=home&toPath=%2Fpages%2FgoodDetail%2Findex%3Fdid%3D2217827749%26cityId%3D758%26rid%3D6434871988&lch=mhqnIu7aPfi7CgzJaqNT6QXrA&rid=6434871988')">                  
+                        <i class="fas fa-tag"></i> 立刻购买 
+                    </button>
+                </div>
+            </div>
+           <!-- 如果你需要添加商品，就是复制下方重复复制  -->
+		   <!--   <div class="coupon-item" data-id="3">
+                <h3 class="coupon-title">沪上阿姨鲜果茶|【大桶】清爽果蔬3选1·仅需13.9元一桶</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('需要复制的口令替换掉文字')">
+                        <i class="far fa-copy"></i> 复制口令打开美团app 
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/图片.png',  '需要跳转的网址链接')">                  
+                        <i class="fas fa-tag"></i> 立刻购买  
+                    </button>
+                </div>
+            </div> -->
+			
+            <div class="coupon-item" data-id="3">
+                <h3 class="coupon-title">这是商品标题</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('1 %复制信息#% 打开团App http:/💰98Y2UyY2Y4NTY💰一起领')">
+                        <i class="far fa-copy"></i> 复制口令打开美团app 
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/hs.png',  'https://peppermall.meituan.com/?page=home&toPath=%2Fpages%2FgoodDetail%2Findex%3Fdid%3D2217316589%26cityId%3D758%26rid%3D6434871988&lch=mhqnIu7aPfi7CgzJaqNT6QXrA&rid=6434871988')">                  
+                        <i class="fas fa-tag"></i> 立刻购买  
+                    </button>
+                </div>
+            </div>
+             <div class="coupon-item" data-id="3">
+                <h3 class="coupon-title">肯德基|香辣双堡双人餐8件门市价115.5元现价仅需44.9元</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('xy.st522.top')"> 
+                        <i class="far fa-copy"></i> 请点击立刻购买 
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/kdj.png',  'https://peppermall.meituan.com/?page=home&toPath=%2Fpages%2FgoodDetail%2Findex%3Fdid%3D2215154859%26cityId%3D758%26rid%3D6434871988&lch=mhqnIu7aPfi7CgzJaqNT6QXrA&rid=6434871988')">                  
+                        <i class="fas fa-tag"></i> 立刻购买  
+                    </button>
+                </div>
+            </div>
+            <div class="coupon-item" data-id="4">
+                <h3 class="coupon-title">红包天天领会场，每周三在线大额神券！</h3>
+                <div class="coupon-actions">
+                    <button class="copy-btn" onclick="copyCouponCode('1 %复制信息#% 打开团App http:/💰wtZjc2YTk4NGQ💰一起领')">
+                        <i class="far fa-copy"></i> 复制口令打开美团app  
+                    </button>
+                    <button class="coupon-btn" onclick="showCouponModal('/img/sg.png',  'http://dpurl.cn/fjO4uebz')">                  
+                        <i class="fas fa-tag"></i> 立刻购买  
+                    </button>
+                </div>
+            </div>
+        </div>
+         
+        <div class="footer-contact fade-in">
+            <h3><i class="fas fa-comments" style="color: var(--primary);"></i> 需要更多优惠信息？</h3>
+            <p>添加专属客服微信，获取更多专属优惠和最新活动信息</p>
+            <div class="footer-buttons">
+                <button class="footer-btn copy-wechat-btn" onclick="copyWechat()">
+                    <i class="fas fa-copy"></i> 复制微信号 
+                </button>
+                <button class="footer-btn contact-btn" onclick="window.open('https://mp.weixin.qq.com/s/JMQ6tKrWbxdaaZ0LBx9pCQ',  '_blank')">
+                    <i class="fab fa-weixin"></i> 成为达人分享大师 
+                </button>
+            </div>
+        </div>
+ 
+        <div class="mobile-footer">
+            <div class="mobile-footer-content">
+                <h3><i class="fas fa-comments" style="color: var(--primary);"></i> 需要更多优惠信息？</h3>
+                <p>添加专属客服微信，获取更多专属优惠和最新活动信息</p>
+                <div class="mobile-footer-buttons">
+                    <button class="mobile-footer-btn mobile-copy-wechat-btn" onclick="copyWechat()">
+                        <i class="fas fa-copy"></i> 复制微信号 
+                    </button>
+                    <button class="mobile-footer-btn mobile-contact-btn" onclick="window.open('https://mp.weixin.qq.com/s/JMQ6tKrWbxdaaZ0LBx9pCQ',  '_blank')">
+                        <i class="fab fa-weixin"></i> 成为达人分享大师 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 优惠券弹窗 -->
+    <div class="modal-overlay" id="couponModal">
+        <div class="modal-content">
+            <div class="modal-img-container">
+                <img src="" alt="优惠券图片" class="modal-img" id="modalImg">
+            </div>
+            <div class="modal-tip">
+                <i class="fas fa-info-circle"></i> 温馨提示：如果微信打开此窗口，可长按识别商品二维码跳转美团小程序购买，</p> <i class="fas fa-info-circle"></i>  温馨提示：点击跳转微信可直接购买！</i> 
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn download-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> 下载图片 
+                </button>
+                <button class="modal-btn modal-open-btn" id="modalOpenBtn">
+                    <i class="fas fa-external-link-alt"></i> 点击跳转微信 
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 复制提示框 -->
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i> 已复制到剪贴板 
+    </div>
+    
+    <script src="mixia.js"></script> 
+</body>
+</html>
